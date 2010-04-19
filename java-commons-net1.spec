@@ -13,6 +13,7 @@ License:	Apache v2.0
 Group:		Libraries/Java
 Source0:	http://www.apache.org/dist/commons/net/source/commons-net-%{version}-src.tar.gz
 # Source0-md5:	ccbb3f67b55e8a7a676499db4386673c
+Patch0:		disable-tests.patch
 URL:		http://commons.apache.org/net/
 BuildRequires:	ant
 %{?with_tests:BuildRequires:	ant-junit}
@@ -72,6 +73,8 @@ Kod źródłowy Commons Net.
 
 %prep
 %setup -q -n commons-net-%{version}
+
+%patch0 -p0
 
 %build
 

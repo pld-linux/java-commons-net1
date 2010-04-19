@@ -1,0 +1,11 @@
+--- build.xml~	2005-12-03 17:05:48.000000000 +0100
++++ build.xml	2010-04-19 15:15:35.000000000 +0200
+@@ -58,7 +58,7 @@
+       </fileset>
+     </copy>
+   </target>
+-  <target name="jar" description="o Create the jar" depends="compile,test">
++  <target name="jar" description="o Create the jar" depends="compile">
+     <jar jarfile="${defaulttargetdir}/${final.name}.jar">
+ 	    <fileset dir="${classesdir}">
+ 		    <exclude name="**/examples/**"/>
