@@ -22,6 +22,7 @@ BuildRequires:	jdk
 BuildRequires:	jpackage-utils
 %{?with_tests:BuildRequires:	junit}
 BuildRequires:	rpm >= 4.4.9-56
+BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	java-oro >= 2.0.8
 BuildArch:	noarch
