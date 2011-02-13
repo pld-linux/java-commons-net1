@@ -1,11 +1,12 @@
-
-%bcond_with		tests		# tests are broken. see note above.
+#
+# Conditional build:
+%bcond_with	tests		# run tests (need network)
 %bcond_without	javadoc		# don't build javadoc
-
+#
 %include	/usr/lib/rpm/macros.java
 %define		srcname	commons-net1
-Summary:	Commons Net - utility functions and components
-Summary(pl.UTF-8):	Commons Net - funkcje i komponenty narzędziowe
+Summary:	Jakarta Commons Net - utility functions and components
+Summary(pl.UTF-8):	Jakarta Commons Net - funkcje i komponenty narzędziowe
 Name:		java-commons-net1
 Version:	1.4.1
 Release:	1
@@ -29,56 +30,56 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Jakarta Commons Net is a set of utility functions and reusable
-components that should be a help in any Java environment.
+Jakarta Commons Net (currently Apache Commons Net) is a set of utility
+functions and reusable components that should be a help in any Java
+environment.
 
 %description -l pl.UTF-8
-Jakarta Commons Net to zestaw funkcji narzędziowych i komponentów
-wielokrotnego użycia, które mogą być pomocne w każdym środowisku Javy.
+Jakarta Commons Net (obecnie Apache Commons Net) to zestaw funkcji
+narzędziowych i komponentów wielokrotnego użycia, które mogą być
+pomocne w każdym środowisku Javy.
 
 %package javadoc
-Summary:	Jakarta Commons Net documentation
-Summary(pl.UTF-8):	Dokumentacja do Jakarta Commons Net
+Summary:	Jakarta Commons Net 1 documentation
+Summary(pl.UTF-8):	Dokumentacja do biblioteki Jakarta Commons Net 1
 Group:		Documentation
 Requires:	jpackage-utils
 
 %description javadoc
-Jakarta Commons Net documentation.
+Jakarta Commons Net 1 documentation.
 
 %description javadoc -l pl.UTF-8
-Dokumentacja do Jakarta Commons Net.
+Dokumentacja do biblioteki Jakarta Commons Net 1.
 
 %package examples
-Summary:	Examples for Commons Net
-Summary(pl.UTF-8):	Przykłady dla Commons Net
+Summary:	Examples for Jakarta Commons Net 1
+Summary(pl.UTF-8):	Przykłady dla biblioteki Jakarta Commons Net 1
 Group:		Documentation
 Requires:	jpackage-utils
 
 %description examples
-Commons Net examples.
+Jakarta Commons Net 1 examples.
 
 %description examples -l pl.UTF-8
-Przykłady Commons Net.
+Przykłady dla biblioteki Jakarta Commons Net 1.
 
 %package sources
-Summary:	Commons Net source code
-Summary(pl.UTF-8):	Źródła Commons Net
+Summary:	Jakarta Commons Net 1 source code
+Summary(pl.UTF-8):	Źródła biblioteki Jakarta Commons Net 1
 Group:		Documentation
 Requires:	jpackage-utils
 
 %description sources
-Commons Net source code.
+Jakarta Commons Net 1 source code.
 
 %description sources -l pl.UTF-8
-Kod źródłowy Commons Net.
+Kod źródłowy biblioteki Jakarta Commons Net 1.
 
 %prep
 %setup -q -n commons-net-%{version}
-
 %patch0 -p0
 
 %build
-
 CLASSPATH=$(build-classpath oro)
 
 %ant clean jar javadoc \
@@ -119,7 +120,9 @@ ln -nfs %{srcname}-%{version} %{_javadocdir}/%{srcname}
 
 %files
 %defattr(644,root,root,755)
-%{_javadir}/*.jar
+%doc NOTICE.txt
+%{_javadir}/commons-net1-%{version}.jar
+%{_javadir}/commons-net1.jar
 
 %if %{with javadoc}
 %files javadoc
