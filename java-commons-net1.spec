@@ -3,7 +3,6 @@
 %bcond_with	tests		# run tests (need network)
 %bcond_without	javadoc		# don't build javadoc
 #
-%include	/usr/lib/rpm/macros.java
 %define		srcname	commons-net1
 Summary:	Jakarta Commons Net - utility functions and components
 Summary(pl.UTF-8):	Jakarta Commons Net - funkcje i komponenty narzędziowe
