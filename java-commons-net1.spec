@@ -76,7 +76,7 @@ Kod źródłowy biblioteki Jakarta Commons Net 1.
 
 %prep
 %setup -q -n commons-net-%{version}
-%patch0 -p0
+%patch -P0 -p0
 
 %build
 CLASSPATH=$(build-classpath oro)
